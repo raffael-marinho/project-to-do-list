@@ -1,8 +1,5 @@
 const listaTarefas = document.querySelector('#lista-tarefas');
 const inputTarefa = document.querySelector('#texto-tarefa');
-const criarTarefaBtn = document
-  .getElementById('criar-tarefa')
-  .addEventListener('click', criarTarefa);
 
 function adicionarRisco(event) {
   const tarefaClicada2x = event.target;
@@ -24,7 +21,7 @@ function addCor(event) {
 
 function selecionarTarefas() {
   const tarefaLis = document.getElementsByClassName('ordem');
-  for (let i = 0; i < tarefaLis.length; i++) {
+  for (let i = 0; i < tarefaLis.length; i += 1) {
     tarefaLis[i].addEventListener('click', addCor);
     tarefaLis[i].addEventListener('dblclick', adicionarRisco);
   }
@@ -39,9 +36,13 @@ function criarTarefa() {
   selecionarTarefas();
 }
 
+document
+  .getElementById('criar-tarefa')
+  .addEventListener('click', criarTarefa);
+
 function removerLista() {
   listaTarefas.innerHTML = '';
 }
 
 const removerTarefaBtn = document.getElementById('apaga-tudo');
-  removerTarefaBtn.addEventListener('click', removerLista);
+removerTarefaBtn.addEventListener('click', removerLista);
